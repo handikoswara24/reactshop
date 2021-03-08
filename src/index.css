@@ -8,24 +8,23 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
 .page-container {
   text-align: center;
   padding: 20px;
   font-size: large;
-  }
+}
 
-  .product-list {
+.product-list {
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .product-list-item {
-padding: 5px;
+  padding: 5px;
 }
 
 .header {
@@ -34,32 +33,36 @@ padding: 5px;
   height: 160px;
   padding: 20px;
   color: white;
-  }
+}
 
-  .header-logo {
+.header-logo {
   animation: header-logo-spin infinite 20s linear;
   height: 80px;
-  }
+}
 
-  @keyframes header-logo-spin {
+@keyframes header-logo-spin {
   from {
-  transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   to {
-  transform: rotate(360deg);
+    transform: rotate(360deg);
   }
-  }
+}
 
-  .header-title {
+.header-title {
   font-size: 1.5em;
-  }
+}
 
-  .header-link {
+.header-link {
   color: #fff;
   text-decoration: none;
   padding: 5px;
-  }
+}
 
-  .header-link-active {
-    border-bottom: #ebebeb solid 2px;
-  }
+.header-link-active {
+  border-bottom: #ebebeb solid 2px;
+}
+
+.product-list-item a {
+  text-decoration: none;
+}
