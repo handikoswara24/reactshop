@@ -1,11 +1,30 @@
 import * as React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, RouteComponentProps, withRouter } from "react-router-dom";
 
 import logo from "./logo.svg";
 
-const Header: React.SFC = () => {
+const Header = (prop: RouteComponentProps) => {
+    const [search, setSearch] = React.useState("");
+    React.useEffect(() => {
+        const searchParams = new URLSearchParams(prop.location.search);
+        setSearch(searchParams.get("search") || "");
+    }, []);
+
+    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.currentTarget.value);
+    };
+
+    const handleSearchKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter") {
+            prop.history.push(`/products?search=${search}`);
+        }
+    }
+
     return (
         <header className="header">
+            <div className="search-container">
+                <input type="search" placeholder="Search" value={search} onChange={handleSearchChange} onKeyDown={handleSearchKeyDown}></input>
+            </div>
             <img src={logo} className="header-logo" alt="logo" />
             <h1 className="header-title">React Shop</h1>
             <nav>
@@ -16,4 +35,4 @@ const Header: React.SFC = () => {
     );
 };
 
-export default Header;
+export default withRouter(Header);
